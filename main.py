@@ -1,4 +1,7 @@
 import requests
+from input_handler import parse_args
+import argparse
+
 
 def iterar_archivo_status(path, funcion):
     try:
@@ -41,4 +44,7 @@ def write_file(code,url,file="resultados.txt"):
     with open(file,"a") as f:
         f.write(f"[{code}] - {url}\n")
 
-iterar_archivo_status("domains.txt", check_status)
+
+args = parse_args()
+print(args.input1)
+iterar_archivo_status(args.input1, check_status)
